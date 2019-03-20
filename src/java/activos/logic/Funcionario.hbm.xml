@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/03/2019 08:02:18 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="activos.logic.Funcionario" table="funcionario" catalog="activos" optimistic-lock="version">
+        <id name="idFuncionario" type="java.lang.Integer">
+            <column name="idFuncionario" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="dependencia" class="activos.logic.Dependencia" fetch="select">
+            <column name="Dependencia_id" not-null="true" />
+        </many-to-one>
+        <property name="cedula" type="string">
+            <column name="cedula" length="45" not-null="true" />
+        </property>
+        <property name="dependencia_1" type="string">
+            <column name="dependencia" length="45" not-null="true" />
+        </property>
+        <set name="biens" table="bien" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Funcionario_idFuncionario" not-null="true" />
+            </key>
+            <one-to-many class="activos.logic.Bien" />
+        </set>
+    </class>
+</hibernate-mapping>

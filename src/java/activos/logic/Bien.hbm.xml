@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/03/2019 08:02:18 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="activos.logic.Bien" table="bien" catalog="activos" optimistic-lock="version">
+        <id name="idBien" type="java.lang.Integer">
+            <column name="idBien" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="funcionario" class="activos.logic.Funcionario" fetch="select">
+            <column name="Funcionario_idFuncionario" not-null="true" />
+        </many-to-one>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="45" not-null="true" />
+        </property>
+        <property name="cantidad" type="string">
+            <column name="cantidad" length="45" not-null="true" />
+        </property>
+        <property name="marca" type="string">
+            <column name="marca" length="45" not-null="true" />
+        </property>
+        <property name="biencol" type="string">
+            <column name="Biencol" length="45" not-null="true" />
+        </property>
+        <property name="precio" type="int">
+            <column name="precio" not-null="true" />
+        </property>
+        <property name="funcionario_1" type="string">
+            <column name="funcionario" length="45" not-null="true" />
+        </property>
+        <set name="categorias" table="biencategoria" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="Bien_idBien" not-null="true" />
+            </key>
+            <many-to-many entity-name="activos.logic.Categoria">
+                <column name="Categoria_id" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="solicituds" table="biensolicitud" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="Bien_idBien" not-null="true" />
+            </key>
+            <many-to-many entity-name="activos.logic.Solicitud">
+                <column name="Solicitud_idSolicitud" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

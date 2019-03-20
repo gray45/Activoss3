@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/03/2019 08:02:18 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="activos.logic.Solicitud" table="solicitud" catalog="activos" optimistic-lock="version">
+        <id name="idSolicitud" type="java.lang.Integer">
+            <column name="idSolicitud" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="dependencia" class="activos.logic.Dependencia" fetch="select">
+            <column name="Dependencia_id" not-null="true" />
+        </many-to-one>
+        <property name="estado" type="string">
+            <column name="estado" length="45" not-null="true" />
+        </property>
+        <property name="comprobante" type="string">
+            <column name="comprobante" length="45" not-null="true" />
+        </property>
+        <property name="fecha" type="string">
+            <column name="fecha" length="45" not-null="true" />
+        </property>
+        <property name="tipo" type="string">
+            <column name="tipo" length="45" not-null="true" />
+        </property>
+        <property name="rasonRechazo" type="string">
+            <column name="rasonRechazo" length="45" />
+        </property>
+        <property name="dependecia" type="string">
+            <column name="dependecia" length="45" not-null="true" />
+        </property>
+        <property name="registrador" type="string">
+            <column name="registrador" length="45" not-null="true" />
+        </property>
+        <set name="biens" table="biensolicitud" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="Solicitud_idSolicitud" not-null="true" />
+            </key>
+            <many-to-many entity-name="activos.logic.Bien">
+                <column name="Bien_idBien" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>
