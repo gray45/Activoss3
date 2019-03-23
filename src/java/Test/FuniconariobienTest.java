@@ -5,48 +5,39 @@
  */
 package Test;
 
-import Dao.UsuarioDao;
-import activos.logic.Usuario;
+import Dao.FuncionariobienDao;
+import activos.logic.Funcionariobien;
 import java.util.List;
 
 /**
  *
  * @author grave
  */
-public class UsuarioTest {
+public class FuniconariobienTest {
     
      static public void main(String[] args){
        
-       //  insertar();
+         //insertar();
          findAllUsuario();
          //editNombre(3);
     }
     public static  void insertar(){
-     for(int i=0; i<5; i++){
-     Usuario usuario = new Usuario(3,"ana"  + i,"administrador","informatica" ,"gray");
      
-     UsuarioDao usuariodao = new UsuarioDao();
+     Funcionariobien usuario = new Funcionariobien("dgr45",2,4);
+     
+     FuncionariobienDao usuariodao = new FuncionariobienDao();
             usuariodao.save(usuario);
-     }
+     
          }
     
     public static void findAllUsuario() {
-        List<Usuario> usuarios;
-        UsuarioDao bl = new UsuarioDao();
+        List<Funcionariobien> usuarios;
+        FuncionariobienDao bl = new FuncionariobienDao();
         usuarios = bl.findAll();
         // usuarios = bl.findAll();
         usuarios.forEach((aux) -> {
-            System.out.println(aux.getNombre());
+            System.out.println(aux.getBien());
         });
         
     }
-    
-    public static  void editNombre(int i){
-    Usuario usuario = new Usuario(3,"greivin","administrador","informatica" ,"gray");
-    usuario.setId(i);
-    UsuarioDao bl = new UsuarioDao();
-    bl.merge(usuario);
-    }
-    
-    
 }

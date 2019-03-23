@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 19/03/2019 08:02:18 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 22/03/2019 02:27:02 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="activos.logic.Usuario" table="usuario" catalog="activos" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="dependencia" class="activos.logic.Dependencia" fetch="select">
+         <property name="dependencia" type="java.lang.Integer">
             <column name="Dependencia_id" not-null="true" />
-        </many-to-one>
+        </property>
         <property name="nombre" type="string">
             <column name="nombre" length="45" not-null="true" />
         </property>

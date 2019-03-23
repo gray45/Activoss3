@@ -5,38 +5,39 @@
  */
 package Test;
 
-import activos.logic.Categoria;
-import Dao.CategoriaDao;
+import Dao.SolicitudDao;
+import activos.logic.Solicitud;
 import java.util.List;
 
 /**
  *
  * @author grave
  */
-public class CategoriaTest {
-    
-    
+public class SolicitudTest {
     static public void main(String[] args){
        
-       //  insertar();
+        // insertar();
          findAllUsuario();
     }
     public static  void insertar(){
      for(int i=0; i<5; i++){
-     Categoria cat = new Categoria("electronica",1);
-     CategoriaDao catDao = new CategoriaDao();
-            catDao.save(cat);
+     Solicitud solicitud = new Solicitud(3,"recibido"  + i, "j54", "hoy" ,"donacion","informatica" ,"gray");
+     
+     SolicitudDao usuariodao = new SolicitudDao();
+            usuariodao.save(solicitud);
      }
          }
     
     public static void findAllUsuario() {
-        List<Categoria> usuarios;
-        CategoriaDao bl = new CategoriaDao();
+        List<Solicitud> usuarios;
+        SolicitudDao bl = new SolicitudDao();
         usuarios = bl.findAll();
         // usuarios = bl.findAll();
         usuarios.forEach((aux) -> {
-            System.out.println(aux.getDescripcion());
+            System.out.println(aux.getRegistrador());
         });
+        
+       
     }
+    
 }
-

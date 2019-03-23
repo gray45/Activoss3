@@ -1,5 +1,5 @@
 package activos.logic;
-// Generated 19/03/2019 08:02:16 PM by Hibernate Tools 4.3.1
+// Generated 22/03/2019 02:27:00 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -14,7 +14,7 @@ public class Categoria  implements java.io.Serializable {
      private Integer id;
      private String descripcion;
      private int activo;
-     private Set biens = new HashSet(0);
+     private Set biencategorias = new HashSet(0);
 
     public Categoria() {
     }
@@ -24,10 +24,10 @@ public class Categoria  implements java.io.Serializable {
         this.descripcion = descripcion;
         this.activo = activo;
     }
-    public Categoria(String descripcion, int activo, Set biens) {
+    public Categoria(String descripcion, int activo, Set biencategorias) {
        this.descripcion = descripcion;
        this.activo = activo;
-       this.biens = biens;
+       this.biencategorias = biencategorias;
     }
    
     public Integer getId() {
@@ -51,12 +51,12 @@ public class Categoria  implements java.io.Serializable {
     public void setActivo(int activo) {
         this.activo = activo;
     }
-    public Set getBiens() {
-        return this.biens;
+    public Set getBiencategorias() {
+        return this.biencategorias;
     }
     
-    public void setBiens(Set biens) {
-        this.biens = biens;
+    public void setBiencategorias(Set biencategorias) {
+        this.biencategorias = biencategorias;
     }
 
 

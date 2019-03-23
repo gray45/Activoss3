@@ -49,6 +49,8 @@ Contributor(s):
     <mapping resource="activos/logic/Solicitud.hbm.xml"/>
     <mapping resource="activos/logic/Bien.hbm.xml"/>
     <mapping resource="activos/logic/Usuario.hbm.xml"/>
+    <mapping resource="activos/logic/Funcionariobien.hbm.xml"/>
+    <mapping resource="activos/logic/Biencategoria.hbm.xml"/>
     <mapping resource="activos/logic/Categoria.hbm.xml"/>
     <mapping resource="activos/logic/Funcionario.hbm.xml"/>
   </session-factory>

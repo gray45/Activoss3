@@ -5,43 +5,35 @@
  */
 package Test;
 
-import Dao.DependenciaDao;
-import activos.logic.Dependencia;
+import Dao.BienDao;
+import activos.logic.Bien;
 import java.util.List;
 
 /**
  *
  * @author grave
  */
-public class DependenciaTest {
+public class BienTest {
     static public void main(String[] args){
        
-       //  insertar();
+         //insertar();
          findAllUsuario();
-        //editNombre(3);
     }
     public static  void insertar(){
      for(int i=0; i<5; i++){
-     Dependencia depedencia = new Dependencia("informatica");
-     DependenciaDao dependenciadao = new DependenciaDao();
-            dependenciadao.save(depedencia);
+     Bien cat = new Bien(2,"compuatadora", "3" ,"Dell", 350000 ,"inactivo");
+     BienDao catDao = new BienDao();
+            catDao.save(cat);
      }
          }
     
     public static void findAllUsuario() {
-        List<Dependencia> usuarios;
-        DependenciaDao bl = new DependenciaDao();
+        List<Bien> usuarios;
+        BienDao bl = new BienDao();
         usuarios = bl.findAll();
         // usuarios = bl.findAll();
         usuarios.forEach((aux) -> {
             System.out.println(aux.getDescripcion());
         });
-    }
-    
-    public static  void editNombre(int i){
-    Dependencia dependencia = new Dependencia("fisica");
-    dependencia.setId(i);
-    DependenciaDao bl = new DependenciaDao();
-    bl.merge(dependencia);
     }
 }

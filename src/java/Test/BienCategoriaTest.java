@@ -5,48 +5,41 @@
  */
 package Test;
 
+import Dao.BienCategoriaDao;
 import Dao.UsuarioDao;
-import activos.logic.Usuario;
+import activos.logic.Biencategoria;
 import java.util.List;
 
 /**
  *
  * @author grave
  */
-public class UsuarioTest {
+public class BienCategoriaTest {
     
      static public void main(String[] args){
        
-       //  insertar();
+        // insertar();
          findAllUsuario();
          //editNombre(3);
     }
     public static  void insertar(){
-     for(int i=0; i<5; i++){
-     Usuario usuario = new Usuario(3,"ana"  + i,"administrador","informatica" ,"gray");
      
-     UsuarioDao usuariodao = new UsuarioDao();
+     Biencategoria usuario = new Biencategoria(2,4);
+     
+     BienCategoriaDao usuariodao = new BienCategoriaDao();
             usuariodao.save(usuario);
-     }
+     
          }
     
     public static void findAllUsuario() {
-        List<Usuario> usuarios;
-        UsuarioDao bl = new UsuarioDao();
+        List<Biencategoria> usuarios;
+        BienCategoriaDao bl = new BienCategoriaDao();
         usuarios = bl.findAll();
         // usuarios = bl.findAll();
         usuarios.forEach((aux) -> {
-            System.out.println(aux.getNombre());
+            System.out.println(aux.getBien());
         });
         
     }
     
-    public static  void editNombre(int i){
-    Usuario usuario = new Usuario(3,"greivin","administrador","informatica" ,"gray");
-    usuario.setId(i);
-    UsuarioDao bl = new UsuarioDao();
-    bl.merge(usuario);
-    }
-    
-    
-}
+   }
