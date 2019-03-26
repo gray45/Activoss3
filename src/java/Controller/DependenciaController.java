@@ -34,14 +34,15 @@ public class DependenciaController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Dependencia> dependencias = null;
-        DependenciaDao dao = new DependenciaDao();
-        try{
-        dependencias = dao.findAll();
-        }catch (Exception ex) {      
-            }
-        request.setAttribute("dependencias", dependencias);
-        request.getRequestDispatcher("/Controller/dependencia.jsp").forward(request, response);
+        String action = request.getParameter("action");
+
+        if ("agregar".equals(action)) {
+            String descripcion = request.getParameter("descripcion");
+            add(descripcion);
+        }
+
+        request.setAttribute("dependencias", findAll());
+        request.getRequestDispatcher("/presentacion/dependencia/dependencia.jsp").forward(request, response);
 
     }
 
@@ -84,4 +85,23 @@ public class DependenciaController extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+    private List<Dependencia> findAll() {
+        List<Dependencia> dependencias = null;
+        DependenciaDao dao = new DependenciaDao();
+        try {
+            dependencias = dao.findAll();
+            return dependencias;
+        } catch (Exception ex) {
+        }
+        return null;
+    }
+
+    private void add(String description) {
+        Dependencia dependencia = new Dependencia(description);
+        DependenciaDao dao = new DependenciaDao();
+        try {
+            dao.save(dependencia);
+        } catch (Exception ex) {
+        }
+    }
 }
