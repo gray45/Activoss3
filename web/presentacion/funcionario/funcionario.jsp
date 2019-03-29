@@ -59,6 +59,7 @@ else{ %>
                 </div>
                 
             </form>
+                    <br>
             <% List<Funcionario> model = (List<Funcionario>) request.getAttribute("funcionarios");%>
             <table class="table table-hover">
                 <tr>

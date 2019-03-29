@@ -30,6 +30,7 @@
                 <input type="text" name="action" value="agregar" style= "display: none;"/>
                 <input type="submit" value="Agregar" class="btn-success"/>
             </form>
+                    <br>
             <% List<Dependencia> model = (List<Dependencia>) request.getAttribute("dependencias");%>
             <table class="table table-hover">
                 <tr>
