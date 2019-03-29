@@ -33,6 +33,146 @@ overlay{
     z-index:2; 
 }
 
-#blue{
-    color: red;
+#index{
+    background: url(../img/principal.jpg) no-repeat center fixed;
+    -webkit-background-sixe: cover;
+    -moz-background-size: cover;
+    -o-brackground-size: cover;
+    background-size: cover;
+}
+
+
+body {
+    margin: 0;
+}
+
+#soli {
+    background: url(../img/solicitudes.jpg) no-repeat center fixed;
+    -webkit-background-sixe: cover;
+    -moz-background-size: cover;
+    -o-brackground-size: cover;
+    background-size: cover;
+}
+
+h1 {
+    color: black;
+}
+
+.container {
+    width: 450px;
+    height: 400px;
+    text-align: center;
+    background-color: transparent;
+    border-radius: 4px;
+    margin: 0 auto;
+    margin-top: 180px;
+    box-shadow: 0 0 20px 1px rgba(10,8,10,100);
+}
+
+
+#form {
+    padding: 60px 40px;
+    margin-top: 80px;
+    
+}
+
+
+button {
+    background-color: green;
+    width: 210px;
+    height: 30px;
+}
+
+
+
+.div1Soli {
+   background-color: darkslategray;
+   opacity:0.7; /* Opacidad 60% */
+   width:auto;
+   height:60px;
+}
+
+.div2Soli {
+    padding: 35px 40px;
+    width: 600px;
+    height: auto; 
+    margin: auto;
+    margin-top: 40px;
+    margin-left: 480px;
+    text-align: center;
+    border-radius: 1px;
+    box-shadow: 0 0 20px 1px rgba(50,190,30,100);
+}
+
+
+h3 {
+    color: turquoise;
+}
+
+
+.textCompro {
+    color: springgreen;
+    width: 20px;
+}
+
+.linea {
+    color: springgreen;
+    size: 15px;
+}
+
+
+.divBienes {
+    width: 1170px;
+    height: auto;
+    margin-left: 230px;
+    background-color: slategrey;
+    opacity: 0.9;
+    padding: 15px;
+}
+
+.contenttablaPresentaBienes {
+    background-color: slategrey;
+    width: auto;
+    height: auto;
+}
+
+.div2Soli input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 200px;
+    background-color: darkslategray;
+    font-size: 18px;
+}
+
+.div2Soli input[type="submit"]:hover {
+    cursor: pointer;
+    background: seagreen;
+    color: #000;
+}
+
+
+
+.div1VerSoli {
+    width: auto;
+    height: 90px;
+    background-color: darkslategray;
+}
+
+.div2VerSoli {
+    width: 1100px;
+    height: 500px;
+    border: lightslategray;
+    border-radius: 4px;
+    background-color: activecaption;
+    margin-left: 240px;
+    margin-top: 30px;
+}
+
+.div3VerSoli {
+    position: absolute;
+    bottom: 0px;
+    width: auto;
+    height: 80px;
+    background-color: darkslategray;
 }

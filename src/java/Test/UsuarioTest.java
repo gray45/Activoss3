@@ -18,10 +18,10 @@ public class UsuarioTest {
      static public void main(String[] args){
        
        //  insertar();
-         findAllUsuario();
+        // findAllUsuario();
          //editNombre(3);
     }
-    public static  void insertar(){
+  /*  public static  void insertar(){
      for(int i=0; i<5; i++){
      Usuario usuario = new Usuario(3,"ana"  + i,"administrador","informatica" ,"gray");
      
@@ -48,5 +48,5 @@ public class UsuarioTest {
     bl.merge(usuario);
     }
     
-    
+    */
 }

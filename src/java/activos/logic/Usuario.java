@@ -1,5 +1,5 @@
 package activos.logic;
-// Generated 22/03/2019 02:27:00 PM by Hibernate Tools 4.3.1
+// Generated 29/03/2019 11:31:28 AM by Hibernate Tools 4.3.1
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,6 +26,7 @@ public class Usuario  implements java.io.Serializable {
 
      private Integer id;
      private Integer dependencia;
+     private Integer funcionario;
      private String nombre;
      private String rol;
      private String dependecia;
@@ -34,14 +35,16 @@ public class Usuario  implements java.io.Serializable {
     public Usuario() {
     }
 
-    public Usuario(Integer dependencia, String nombre, String rol, String dependecia, String password) {
+    public Usuario(Integer dependencia, Integer funcionario, String nombre, String rol, String dependecia, String password) {
        this.dependencia = dependencia;
+       this.funcionario = funcionario;
        this.nombre = nombre;
        this.rol = rol;
        this.dependecia = dependecia;
        this.password = password;
     }
-   @Id @GeneratedValue(strategy=IDENTITY)
+   
+    @Id @GeneratedValue(strategy=IDENTITY)
 
     
     @Column(name="id", unique=true, nullable=false)
@@ -63,7 +66,15 @@ public class Usuario  implements java.io.Serializable {
         this.dependencia = dependencia;
     }
     
-    @Column(name="nombre", nullable=false)
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="dependencia", nullable=false)
+    public Integer getFuncionario() {
+        return this.funcionario;
+    }
+    
+    public void setFuncionario(Integer funcionario) {
+        this.funcionario = funcionario;
+    }
     public String getNombre() {
         return this.nombre;
     }
@@ -71,8 +82,6 @@ public class Usuario  implements java.io.Serializable {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
-    @Column(name="rol", nullable=false)
     public String getRol() {
         return this.rol;
     }
@@ -80,8 +89,6 @@ public class Usuario  implements java.io.Serializable {
     public void setRol(String rol) {
         this.rol = rol;
     }
-    
-    @Column(name="dependencia", nullable=false)
     public String getDependecia() {
         return this.dependecia;
     }
@@ -89,8 +96,6 @@ public class Usuario  implements java.io.Serializable {
     public void setDependecia(String dependecia) {
         this.dependecia = dependecia;
     }
-    
-    @Column(name="password", nullable=false)
     public String getPassword() {
         return this.password;
     }

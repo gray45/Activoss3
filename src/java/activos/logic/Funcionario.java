@@ -1,5 +1,5 @@
 package activos.logic;
-// Generated 22/03/2019 02:27:00 PM by Hibernate Tools 4.3.1
+// Generated 29/03/2019 11:31:28 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -29,6 +29,7 @@ public class Funcionario  implements java.io.Serializable {
      private String cedula;
      private String dependencia_1;
      private Set funcionariobiens = new HashSet(0);
+     private Set usuarios = new HashSet(0);
 
     public Funcionario() {
     }
@@ -39,13 +40,15 @@ public class Funcionario  implements java.io.Serializable {
         this.cedula = cedula;
         this.dependencia_1 = dependencia_1;
     }
-    public Funcionario(Integer dependencia, String cedula, String dependencia_1, Set funcionariobiens) {
+    public Funcionario(Integer dependencia, String cedula, String dependencia_1, Set funcionariobiens, Set usuarios) {
        this.dependencia = dependencia;
        this.cedula = cedula;
        this.dependencia_1 = dependencia_1;
        this.funcionariobiens = funcionariobiens;
+       this.usuarios = usuarios;
     }
-   @Id @GeneratedValue(strategy=IDENTITY)
+   
+    @Id @GeneratedValue(strategy=IDENTITY)
 
     
     @Column(name="idFuncionario", unique=true, nullable=false)
@@ -86,6 +89,13 @@ public class Funcionario  implements java.io.Serializable {
     
     public void setFuncionariobiens(Set funcionariobiens) {
         this.funcionariobiens = funcionariobiens;
+    }
+    public Set getUsuarios() {
+        return this.usuarios;
+    }
+    
+    public void setUsuarios(Set usuarios) {
+        this.usuarios = usuarios;
     }
 
 

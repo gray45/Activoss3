@@ -16,6 +16,7 @@ and open the template in the editor.
     
         <label>Para crear una solicitud </label> <a href="/Activos/presentacion/solicitud/create/View.jsp"> click aqui! </a>
         <label>Para crear una dependencia </label> <a href="Controller/DependenciaController"> click aqui! </a>
+         <label>Para crear un funcionario </label> <a href="Controller/FuncionarioController"> click aqui! </a>
     
         <form action="/Controller/DependenciaController">
             <input type="submit" value="dependecia"/>

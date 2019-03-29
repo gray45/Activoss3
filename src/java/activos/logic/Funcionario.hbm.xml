@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 22/03/2019 02:27:02 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 29/03/2019 11:31:29 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="activos.logic.Funcionario" table="funcionario" catalog="activos" optimistic-lock="version">
         <id name="idFuncionario" type="java.lang.Integer">
             <column name="idFuncionario" />
             <generator class="identity" />
         </id>
-        <property name="dependencia" type="java.lang.Integer">
+         <property name="dependencia" type="java.lang.Integer">
             <column name="Dependencia_id" not-null="true" />
         </property>
         <property name="cedula" type="string">
@@ -22,6 +22,12 @@
                 <column name="Funcionario_idFuncionario" not-null="true" />
             </key>
             <one-to-many class="activos.logic.Funcionariobien" />
+        </set>
+        <set name="usuarios" table="usuario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Funcionario_idFuncionario" not-null="true" />
+            </key>
+            <one-to-many class="activos.logic.Usuario" />
         </set>
     </class>
 </hibernate-mapping>

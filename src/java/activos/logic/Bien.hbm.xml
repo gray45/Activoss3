@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 22/03/2019 02:27:02 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 29/03/2019 11:31:29 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="activos.logic.Bien" table="bien" catalog="activos" optimistic-lock="version">
         <id name="idBien" type="java.lang.Integer">
             <column name="idBien" />
             <generator class="identity" />
         </id>
-         <property name="solicitud" type="java.lang.Integer">
+        <property name="solicitud" type="java.lang.Integer">
             <column name="Solicitud_idSolicitud" not-null="true" />
         </property>
         <property name="descripcion" type="string">

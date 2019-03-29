@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 22/03/2019 02:27:02 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 29/03/2019 11:31:29 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="activos.logic.Usuario" table="usuario" catalog="activos" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
             <generator class="identity" />
         </id>
-         <property name="dependencia" type="java.lang.Integer">
-            <column name="Dependencia_id" not-null="true" />
+        <property name="funcionario" type="java.lang.Integer">
+            <column name="Funcionario_idFuncionario" not-null="true" />
         </property>
         <property name="nombre" type="string">
             <column name="nombre" length="45" not-null="true" />

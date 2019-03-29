@@ -1,5 +1,5 @@
 package activos.logic;
-// Generated 22/03/2019 02:27:00 PM by Hibernate Tools 4.3.1
+// Generated 29/03/2019 11:31:28 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -75,7 +75,6 @@ public class Bien  implements java.io.Serializable {
     public Integer getSolicitud() {
         return this.solicitud;
     }
-    
     public void setSolicitud(Integer solicitud) {
         this.solicitud = solicitud;
     }
