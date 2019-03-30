@@ -5,14 +5,11 @@
  */
 package Controller;
 
-import Dao.DependenciaDao;
 import Dao.FuncionarioDao;
 import Dao.UsuarioDao;
-import activos.logic.Dependencia;
 import activos.logic.Funcionario;
 import activos.logic.Usuario;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
