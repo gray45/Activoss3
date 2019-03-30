@@ -51,9 +51,9 @@ public class UsuarioController extends HttpServlet {
             request.getRequestDispatcher("/index.jsp").forward(request, response);
         }
 
-        request.setAttribute("funcionarios", findAll());
-        request.getRequestDispatcher("/presentacion/usuario/AgregarUsuario.jsp").forward(request, response);
-    }
+          request.getRequestDispatcher("/presentacion/usuario/AgregarUsuario.jsp").forward(request, response);
+       request.setAttribute("funcionarios", findAll());
+   }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

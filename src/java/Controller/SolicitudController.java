@@ -80,12 +80,14 @@ public class SolicitudController extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    private void buscarSolicitud(HttpServletRequest request, HttpServletResponse response) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void buscarSolicitud(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {  
+        request.getRequestDispatcher("/presentacion/solicitud/BuscarSolicitud.jsp").forward(request, response);
     }
 
-    private void nuevaSolicitud(HttpServletRequest request, HttpServletResponse response) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void nuevaSolicitud(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
+        request.getRequestDispatcher("/presentacion/solicitud/NuevaSolicitud.jsp").forward(request, response);
     }
 
 }
