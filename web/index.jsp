@@ -67,6 +67,7 @@ and open the template in the editor.
                             </div>
                         </div>
                     </div>
+                <label>login </label> <a href="Activos/presentacion/usuario/login/View.jsp"> click aqui! </a>
             </div>
             <div class="div3Inferior">
                 <a class="a3">Para mas informacion www.una.ac.cr &nbsp; o &nbsp; Tel: 2277 3000</a>

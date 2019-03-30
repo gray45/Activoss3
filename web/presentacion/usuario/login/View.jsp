@@ -6,28 +6,47 @@
 <html>
 <head>
     <title>Login</title>
-    <%@ include file="/presentacion/Header.jsp" %>
-
-    <%@ include file="/Head.jsp"%>
+    <%@ include file= "../../../Head.jsp"%>
 </head>
 
 <body>
+    <%@ include file="../../Header.jsp" %>
 
 
-<center>
-        <div class="login">
-              <form >
-                  
-                  
-                  <input class="inputForm" type="text" placeholder="id"/>
-                <br>
-                <input class="inputForm" type="password" placeholder="contrseña"/>
-                <br>
-                <input class="submitButton" type="submit" name="login" value="login" >
-              </form>
-        </div>
-</center>
-
+    <div  class="container-fluid">
+            <div class="row">  
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <form action="Activos/Controller/LoginController"  >
+                  <div class="row">
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label for="userName"> UserName</label>
+                  <input  class="form-control" type="text" name="userName" placeholder="UserName"/>
+                          </div>
+                          </div>
+                      </div>
+                   <div class="row">
+                      <div class="col-md-6">
+                           <div class="form-group">
+                               <label for="password">Password</label>
+                               <input class="form-control" type="password" name="password" placeholder="contraseña"/>
+                           </div>
+                           </div>
+                      </div>
+                  <br>
+                   <div class="row">
+                       <div class="col-md-4"></div>
+                       <div class="col-md-4">
+                <input class="btn-info" type="submit" name="action" value="login" >
+                  </div>
+                   </div>
+                </form>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+    </div>
+       
 </body>
 </html>
 <%--<%!

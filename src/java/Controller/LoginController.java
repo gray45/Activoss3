@@ -5,7 +5,8 @@
  */
 package Controller;
 
-import activos.logic.Model;
+import Dao.FuncionarioDao;
+import Dao.UsuarioDao;
 import activos.logic.Usuario;
 import java.io.IOException;
 import java.util.HashMap;
@@ -71,9 +72,11 @@ public class LoginController extends HttpServlet {
                 request.setAttribute("model", model);
                 Usuario logged=null;
                 try {
-                    logged=Model.login(model);
+                    String userName = request.getParameter("userName");
+                    String password = request.getParameter("password");
+                    logged= getusuarioForLogin(userName, password);
                     request.getSession(true).setAttribute("logged", logged);
-                    request.getRequestDispatcher("/presentacion/personas/list").forward( request, response); 
+                    request.getRequestDispatcher("/index.jsp").forward( request, response); 
                 } catch (Exception ex) {
                     request.getRequestDispatcher("/presentacion/usuarios/login/View.jsp").forward(request, response);
                 }                  
@@ -97,26 +100,33 @@ public class LoginController extends HttpServlet {
     }           
 
     boolean verificar(HttpServletRequest request){
-       if (request.getParameter("id")==null) return false;
-       if (request.getParameter("clave")==null) return false; 
+       if (request.getParameter("userName")==null) return false;
+       if (request.getParameter("password")==null) return false; 
        return true;
     }
     
     Map<String,String> validar(HttpServletRequest request){
         Map<String,String> errores = new HashMap<>();
-        if (request.getParameter("id").isEmpty()){
-            errores.put("id","Id requerido");
+        if (request.getParameter("userName").isEmpty()){
+            errores.put("userName","userName requerido");
         }
 
-        if (request.getParameter("clave").isEmpty()){
-            errores.put("clave","Clave requerida");
+        if (request.getParameter("password").isEmpty()){
+            errores.put("password","password requerida");
         }
         return errores;
     }
         
     void updateModel(Usuario model, HttpServletRequest request){
-        model.setId(Integer.parseInt(request.getParameter("id")));
-        model.setPassword(request.getParameter("clave"));
+        model.setNombre(request.getParameter("userName"));
+        model.setPassword(request.getParameter("password"));
+    }
+    
+    private Usuario getusuarioForLogin(String userName, String password){
+        UsuarioDao dao = new UsuarioDao();
+        String query = "FROM Usuario WHERE nombre = '" + userName 
+                + "'  AND password = '" + password + "'";
+   return (Usuario) dao.findByQuery(query).get(0);
     }
  
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
