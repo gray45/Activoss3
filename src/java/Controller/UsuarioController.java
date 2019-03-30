@@ -5,8 +5,12 @@
  */
 package Controller;
 
+import Dao.FuncionarioDao;
+import Dao.UsuarioDao;
+import activos.logic.Funcionario;
+import activos.logic.Usuario;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author grave
  */
-@WebServlet(name = "UsuarioController", urlPatterns = {"/UsuarioController"})
+@WebServlet(name = "UsuarioController", urlPatterns = {"/Controller/UsuarioController"})
 public class UsuarioController extends HttpServlet {
 
     /**
@@ -32,18 +36,23 @@ public class UsuarioController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet UsuarioController</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet UsuarioController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+         String action = request.getParameter("action");
+
+        if ("agregar".equals(action)) {
+            String descripcion = request.getParameter("descripcion");
+            String funcionarioId = request.getParameter("funcionario");
+            String userName = request.getParameter("UserName");
+            String rol = request.getParameter("rol");
+            String password = request.getParameter("password");
+            
+           Funcionario funcionario = getFuncionarioById(Integer.parseInt(funcionarioId));
+            add(funcionario.getDependencia(),funcionario.getIdFuncionario(),
+                    userName,rol,funcionario.getDependencia_1(),password);
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
         }
+
+        request.setAttribute("funcionarios", findAll());
+        request.getRequestDispatcher("/presentacion/usuario/AgregarUsuario.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -85,4 +94,29 @@ public class UsuarioController extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+    private List<Funcionario> findAll() {
+        List<Funcionario> funcionarios = null;
+        FuncionarioDao dao = new FuncionarioDao();
+        try {
+            funcionarios = dao.findAll();
+            return funcionarios;
+        } catch (Exception ex) {
+        }
+        return null;
+    }
+    
+    private Funcionario getFuncionarioById(Integer id){
+    
+    FuncionarioDao dao = new FuncionarioDao();
+   return (Funcionario) dao.findByID(id);
+    }
+    
+    private void add(Integer dependencia, Integer funcionario, String nombre, String rol, String dependenciaDescricion, String password) {
+        Usuario usuario = new Usuario(dependencia, funcionario, nombre, rol, dependenciaDescricion, password);
+        UsuarioDao dao = new UsuarioDao();
+        try {
+            dao.save(usuario);
+        } catch (Exception ex) {
+        }
+    }
 }

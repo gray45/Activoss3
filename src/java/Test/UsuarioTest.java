@@ -17,17 +17,17 @@ public class UsuarioTest {
     
      static public void main(String[] args){
        
-       //  insertar();
+         insertar();
         // findAllUsuario();
          //editNombre(3);
     }
-  /*  public static  void insertar(){
-     for(int i=0; i<5; i++){
-     Usuario usuario = new Usuario(3,"ana"  + i,"administrador","informatica" ,"gray");
+    public static  void insertar(){
+     
+     Usuario usuario = new Usuario(1,1,"ana","administrador","informatica" ,"gray");
      
      UsuarioDao usuariodao = new UsuarioDao();
             usuariodao.save(usuario);
-     }
+     
          }
     
     public static void findAllUsuario() {
@@ -42,11 +42,11 @@ public class UsuarioTest {
     }
     
     public static  void editNombre(int i){
-    Usuario usuario = new Usuario(3,"greivin","administrador","informatica" ,"gray");
+    Usuario usuario = new Usuario(1,1,"greivin","administrador","informatica" ,"gray");
     usuario.setId(i);
     UsuarioDao bl = new UsuarioDao();
     bl.merge(usuario);
     }
     
-    */
+    
 }

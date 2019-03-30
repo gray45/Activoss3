@@ -9,6 +9,7 @@ and open the template in the editor.
         <title>Registro Telefonico</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%@ include file="Head.jsp"%>
     </head>
     
     <body>
@@ -17,6 +18,7 @@ and open the template in the editor.
         <label>Para crear una solicitud </label> <a href="/Activos/presentacion/solicitud/create/View.jsp"> click aqui! </a>
         <label>Para crear una dependencia </label> <a href="Controller/DependenciaController"> click aqui! </a>
          <label>Para crear un funcionario </label> <a href="Controller/FuncionarioController"> click aqui! </a>
+         <label>Registrarse </label> <a href="Controller/UsuarioController"> click aqui! </a>
     
         <form action="/Controller/DependenciaController">
             <input type="submit" value="dependecia"/>
