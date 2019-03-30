@@ -8,6 +8,9 @@
             <column name="id" />
             <generator class="identity" />
         </id>
+        <property name="dependencia" type="java.lang.Integer">
+            <column name="Dependencia_id" not-null="true" />
+        </property>
         <property name="funcionario" type="java.lang.Integer">
             <column name="Funcionario_idFuncionario" not-null="true" />
         </property>
