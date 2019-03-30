@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package activos.presentacion.usuarios.login;
+package Controller;
 
 import activos.logic.Model;
 import activos.logic.Usuario;
@@ -22,8 +22,16 @@ import javax.servlet.http.HttpSession;
  *
  * @author Escinf
  */
-@WebServlet(name = "presentation.usuarios.login", urlPatterns = {"/presentation/usuarios/login/prepareLogin","/presentation/usuarios/login/login","/presentation/usuarios/login/logout"})
-public class Controller extends HttpServlet {
+@WebServlet(name = "presentation.usuarios.login", 
+        urlPatterns = 
+                {
+//                    "/presentacion/usuarios/login/prepareLogin",
+//                    "/presentacion/usuarios/login/login",
+//                    "/presentacion/usuarios/login/logout"
+                      "/Controller/LoginController"
+                })
+
+public class LoginController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,11 +45,13 @@ public class Controller extends HttpServlet {
     protected void processRequest(HttpServletRequest request, 
                                   HttpServletResponse response)
             throws ServletException, IOException {
-            if (request.getServletPath().equals("/presentation/usuarios/login/prepareLogin"))
+        String action  = request.getParameter("action");
+                
+            if (action.equals("prepareLogin"))
                 this.prepareLogin(request, response);        
-            if (request.getServletPath().equals("/presentation/usuarios/login/login"))
+            if (action.equals("login"))
                 this.login(request, response);
-            if (request.getServletPath().equals("/presentation/usuarios/login/logout"))
+            if (request.getServletPath().equals("/presentacion/usuarios/login/logout"))
                 this.logout(request, response);            
     }
 
@@ -49,7 +59,7 @@ public class Controller extends HttpServlet {
         throws ServletException, IOException {
         Usuario model = new Usuario();
         request.setAttribute("model", model);
-        request.getRequestDispatcher("/presentation/usuarios/login/View.jsp").forward( request, response); 
+        request.getRequestDispatcher("/presentacion/usuario/login/View.jsp").forward( request, response); 
     } 
 
     private void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
@@ -63,18 +73,18 @@ public class Controller extends HttpServlet {
                 try {
                     logged=Model.login(model);
                     request.getSession(true).setAttribute("logged", logged);
-                    request.getRequestDispatcher("/presentation/personas/list").forward( request, response); 
+                    request.getRequestDispatcher("/presentacion/personas/list").forward( request, response); 
                 } catch (Exception ex) {
-                    request.getRequestDispatcher("/presentation/usuarios/login/View.jsp").forward(request, response);
+                    request.getRequestDispatcher("/presentacion/usuarios/login/View.jsp").forward(request, response);
                 }                  
             }
             else{
                 request.setAttribute("errors", errors);
-                request.getRequestDispatcher("/presentation/usuarios/login/View.jsp").forward(request, response);
+                request.getRequestDispatcher("/presentacion/usuarios/login/View.jsp").forward(request, response);
             }            
         }
         else{
-            request.getRequestDispatcher("/presentation/Error.jsp").forward(request, response);            
+            request.getRequestDispatcher("/presentacion/Error.jsp").forward(request, response);            
         }
     }
         
@@ -83,7 +93,7 @@ public class Controller extends HttpServlet {
             HttpSession session = request.getSession(true);
             session.removeAttribute("logged");
             session.invalidate();
-            request.getRequestDispatcher("/presentation/usuarios/login/prepareLogin").forward( request, response); 
+            request.getRequestDispatcher("/presentacion/usuarios/login/prepareLogin").forward( request, response); 
     }           
 
     boolean verificar(HttpServletRequest request){

@@ -12,7 +12,7 @@ and open the template in the editor.
     </head>
     
     <body>
-        <%@ include file="/presentacion/Header.jsp" %>             
+         
     
         <label>Para crear una solicitud </label> <a href="/Activos/presentacion/solicitud/create/View.jsp"> click aqui! </a>
         <label>Para crear una dependencia </label> <a href="Controller/DependenciaController"> click aqui! </a>
@@ -30,13 +30,18 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="CSS/estilo.css" type="text/css"> 
-    </head>
+        <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
+        <%@include file="Head.jsp"%> 
+     </head>
     <body class="inicio">
         <div>
             <div class="div1">
                 <div id="head">
-                    <a class="a2" href="">Iniciar-Secion</a>
                     <a class="a2" href="">Registrarse</a>
+                    <a class="a2"  href="Controller/LoginController?action=prepareLogin"> Iniciar-Sesión</a>
+                    
+                    
+                    
                 </div>
             </div>
             <div class="contenedor">

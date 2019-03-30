@@ -1,178 +1,90 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : Mar 19, 2019, 12:59:31 PM
-    Author     : Anthony
-*/
-
-overlay{
-    display: none; 
-    position: absolute;
-    top: 0%;  
-    left: 0%; 
-    width: 100%;  
-    height: 100%;
-    background-color: lightgray;
-    z-index:1; opacity:.70;
-
+#body {
+    background-color: black;
 }
 
-.popup {
-    display: none; 
-    position: absolute;
-    top: 10%; 
-    left: 25%; 
-    width: 50%; 
-    height: 50%;
-    padding: 5px;
-    border: 5px solid lightgray;
-    background-color: white;
-    z-index:2; 
-}
-
-#index{
-    background: url(../img/principal.jpg) no-repeat center fixed;
-    -webkit-background-sixe: cover;
-    -moz-background-size: cover;
-    -o-brackground-size: cover;
-    background-size: cover;
+.inicio {
+    background-color: azure;
 }
 
 
-body {
-    margin: 0;
-}
-
-#soli {
-    background: url(../img/solicitudes.jpg) no-repeat center fixed;
-    -webkit-background-sixe: cover;
-    -moz-background-size: cover;
-    -o-brackground-size: cover;
-    background-size: cover;
-}
-
-h1 {
-    color: black;
-}
-
-.container {
-    width: 450px;
-    height: 400px;
-    text-align: center;
-    background-color: transparent;
-    border-radius: 4px;
-    margin: 0 auto;
-    margin-top: 180px;
-    box-shadow: 0 0 20px 1px rgba(10,8,10,100);
-}
-
-
-#form {
-    padding: 60px 40px;
-    margin-top: 80px;
+.div1 {
+    height: 110px;
+    width: auto;
+    background-color: darkslategrey ;
     
 }
 
 
-button {
-    background-color: green;
-    width: 210px;
-    height: 30px;
+.contenedor {
+    width: 1300px;
+    height: 450px;
+    margin-left: 150px;
+    margin-top: 70px;
+    background-color: #bfd0ef;
+    border: black;
+    border: darkslategray 2px solid;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 0px solid #000000;
 }
 
 
-
-.div1Soli {
-   background-color: darkslategray;
-   opacity:0.7; /* Opacidad 60% */
-   width:auto;
-   height:60px;
+.titulo {
+    padding: 10px 90px;
+    margin-top: 50px;
 }
 
-.div2Soli {
-    padding: 35px 40px;
-    width: 600px;
-    height: auto; 
-    margin: auto;
-    margin-top: 40px;
-    margin-left: 480px;
-    text-align: center;
-    border-radius: 1px;
-    box-shadow: 0 0 20px 1px rgba(50,190,30,100);
+#head {
+    padding: 30px 10px;
+    font-size: large;
 }
 
-
-h3 {
-    color: turquoise;
+#img {
+    width: 160px;
+    height: 100px;
+    padding: 15px 900px;
 }
 
-
-.textCompro {
-    color: springgreen;
-    width: 20px;
+#lista {
+    font-size: large;
 }
 
-.linea {
-    color: springgreen;
-    size: 15px;
+.a1{
+    color: ghostwhite;
+}
+.a2 {
+    color: ghostwhite;
 }
 
-
-.divBienes {
-    width: 1170px;
-    height: auto;
-    margin-left: 230px;
-    background-color: slategrey;
-    opacity: 0.9;
-    padding: 15px;
+.div3Inferior {
+    bottom: 0;
+    height: 34px;
+    padding: 13px 0 4px;
+    position: fixed;
+    width: 100%;
+    z-index: 5000;
+    background-color: darkslategrey;
+    font-size: large;
 }
 
-.contenttablaPresentaBienes {
-    background-color: slategrey;
-    width: auto;
-    height: auto;
+.a3 {
+    padding: 0 600px;
+}
+.login{
+    border-radius: 6px 6px 6px 6px;
+    background-color: #E8E8EB;
+    margin: 10px 25px 25px 10px;
+    
 }
 
-.div2Soli input[type="submit"] {
-    border: none;
-    outline: none;
-    height: 40px;
-    width: 200px;
-    background-color: darkslategray;
-    font-size: 18px;
+.inputForm{
+    border-radius: 3px 3px 3px 3px;
+    margin: 10px 25px 25px 10px;
+    
 }
-
-.div2Soli input[type="submit"]:hover {
-    cursor: pointer;
-    background: seagreen;
-    color: #000;
-}
-
-
-
-.div1VerSoli {
-    width: auto;
-    height: 90px;
-    background-color: darkslategray;
-}
-
-.div2VerSoli {
-    width: 1100px;
-    height: 500px;
-    border: lightslategray;
-    border-radius: 4px;
-    background-color: activecaption;
-    margin-left: 240px;
-    margin-top: 30px;
-}
-
-.div3VerSoli {
-    position: absolute;
-    bottom: 0px;
-    width: auto;
-    height: 80px;
-    background-color: darkslategray;
+.submitButton{
+    border-radius: 3px 3px 3px 3px;    
+    margin: 10px 10px 10px 10px;
+    
 }
