@@ -35,8 +35,8 @@ public class Usuario  implements java.io.Serializable {
     public Usuario() {
     }
 
-    public Usuario(Integer dependencia, Integer funcionario, String nombre, String rol, String dependecia, String password) {
-       this.dependencia = dependencia;
+        public Usuario(Integer dependencia, Integer funcionario, String nombre, String rol, String dependecia, String password) {
+           this.dependencia = dependencia;
        this.funcionario = funcionario;
        this.nombre = nombre;
        this.rol = rol;
