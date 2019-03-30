@@ -3,7 +3,7 @@
 }
 
 .inicio {
-    background-color: azure;
+    background-color: whitesmoke;
 }
 
 
@@ -38,6 +38,11 @@
 #head {
     padding: 30px 10px;
     font-size: large;
+    background-color: black;
+    display: block; 
+    border-bottom: 0px ; 
+    height:75px; 
+    width:100%;
 }
 
 #img {
@@ -88,3 +93,4 @@
     margin: 10px 10px 10px 10px;
     
 }
+ 

@@ -32,18 +32,11 @@ and open the template in the editor.
         <link rel="stylesheet" href="CSS/estilo.css" type="text/css"> 
         <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
         <%@include file="Head.jsp"%> 
+        
      </head>
     <body class="inicio">
+        <%@include  file="presentacion/Header.jsp" %>
         <div>
-            <div class="div1">
-                <div id="head">
-                    <a class="a2" href="">Registrarse</a>
-                    <a class="a2"  href="Controller/LoginController?action=prepareLogin"> Iniciar-Sesión</a>
-                    
-                    
-                    
-                </div>
-            </div>
             <div class="contenedor">
                     <div class="titulo">
                         <div>
