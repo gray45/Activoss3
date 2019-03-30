@@ -36,7 +36,8 @@ debe de ir alguna variable en este jsp para que cambie el nombre en el menu o he
     <% } %>
     
     <% if(logged==null){ %>
-        <li> <a href="presentation/usuarios/login/prepareLogin">Ingresar</a> </li>
+        <li> <a href="Controller/UsuarioController?actio=prepareLogin">Ingresar</a> </li>
+        <li> <a href="Controller/">Registrarse</a> </li>
     <% } %>  
             </ul>
         </div>
