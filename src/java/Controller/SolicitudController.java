@@ -17,7 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Anthony
  */
-@WebServlet(name = "activos.presentacion.solicitudes.create", urlPatterns = {"/activos/presentacion/solicitudes/create"})
+@WebServlet(name = "activos.presentacion.solicitudes.create", 
+        urlPatterns = {"/Controller/SolicitudController"})
 public class SolicitudController extends HttpServlet {
 
     /**
@@ -39,6 +40,9 @@ public class SolicitudController extends HttpServlet {
             
             if (action.equals("nuevaSolicitud"))
                 this.nuevaSolicitud(request, response);    
+            
+            if (action.equals(""))
+                this.nuevaSolicitud(request, response);  
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

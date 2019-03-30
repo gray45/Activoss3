@@ -23,10 +23,6 @@ and open the template in the editor.
     <body id="soli">
 
         <div class="bodySoli">
-            <div class="div1Soli">
-                <a href="principal.html">Principal</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="index.html">Login</a>
-            </div>
             <div class="div2Soli">
                 <h3>SOLICITUD</h3>
                 <center>
