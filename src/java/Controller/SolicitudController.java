@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package activos.presentacion.solicitudes.create;
+package Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Anthony
  */
 @WebServlet(name = "activos.presentacion.solicitudes.create", urlPatterns = {"/activos/presentacion/solicitudes/create"})
-public class Controller extends HttpServlet {
+public class SolicitudController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
