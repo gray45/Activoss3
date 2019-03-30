@@ -17,7 +17,7 @@
             <div class="row">  
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
-                    <form action="Activos/Controller/LoginController"  >
+                    <form action="Controller/LoginController"  >
                   <div class="row">
                       <div class="col-md-6">
                           <div class="form-group">
