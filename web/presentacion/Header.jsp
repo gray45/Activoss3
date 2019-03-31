@@ -23,8 +23,12 @@ debe de ir alguna variable en este jsp para que cambie el nombre en el menu o he
             <ul>
                 <% if(logged!=null){ %>
                 
-                <% if(logged.getRol().equals("ADM")){ %>        
+                <% if(!logged.getRol().equals("Admistrador")){ %>        
                 <li> <a href="Controller/SolicitudController?action=nuevaSolicitud">Nueva Solicitud</a> </li>    
+                <li> <a href="Controller/SolicitudController?action=Buscar">Buscar Solicitud</a> </li>  
+                <li> <a href="Controller/FuncionarioController">Funcionarios</a> </li>    
+                <li> <a href="Controller/DependenciaController">Dependencias</a> </li>  
+                   
                 <% } %>
                 <% if(logged.getRol().equals("ADM")){ %>        
                 <li> <a href="Controller/LoginController?action=buscarSolicitud">Buscar Solicitud</a> </li>    
@@ -36,8 +40,6 @@ debe de ir alguna variable en este jsp para que cambie el nombre en el menu o he
                 </li>
                 <% } %> 
                 <% if(logged==null){ %>
-                <li> <a href="Controller/SolicitudController?action=nuevaSolicitud">Nueva Solicitud</a> </li>    
-                <li> <a href="Controller/SolicitudController?action=buscarSolicitud">Buscar Solicitud</a> </li>  
                 <li> <a href="Controller/LoginController?action=prepareLogin">Ingresar</a> </li>
                 <li> <a href="Controller/UsuarioController">Registrarse</a> </li>    
                 

@@ -34,7 +34,7 @@ and open the template in the editor.
                                 <option name="tipo" value="donacion">Donacion</option>
                             </select>
                         </div>                     
-                        <input type="submit" name="action" value="Registrar">
+                        <input type="submit" name="action" value="agregarNuevaSolicitud">
                     </form>
                     <br>
                 </center>

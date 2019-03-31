@@ -5,10 +5,14 @@
  */
 package Controller;
 
+import Dao.BienDao;
+import Dao.SolicitudDao;
 import activos.logic.Bien;
 import activos.logic.Solicitud;
+import activos.logic.Usuario;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Anthony
  */
-@WebServlet(name = "activos.presentacion.solicitudes.create", 
+@WebServlet(name = "activos.presentacion.solicitudes.create",
         urlPatterns = {"/Controller/SolicitudController"})
 public class SolicitudController extends HttpServlet {
 
@@ -34,20 +38,25 @@ public class SolicitudController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
-       String action  = request.getParameter("action");
-                
-            if (action.equals("buscarSolicitud"))
-                this.buscarSolicitud(request, response);    
-            
-            if (action.equals("nuevaSolicitud"))
-                this.nuevaSolicitud(request, response);    
-            
-            if (action.equals("Agregar Bien"))
-                this.agregarBien(request, response);  
-            
-            if (action.equals("Registrar"))
-                this.registrar(request, response);  
+
+        String action = request.getParameter("action");
+
+        if (action.equals("Buscar")) {
+            this.buscarSolicitud(request, response);
+        }
+
+        if (action.equals("nuevaSolicitud")) {
+            this.nuevaSolicitud(request, response);
+        }
+
+        if (action.equals("Agregar Bien")) {
+            this.agregarBien(request, response);
+        }
+
+        if (action.equals("agregarNuevaSolicitud")) {
+            this.agregarNuevaSolicitud(request, response);
+        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -89,59 +98,114 @@ public class SolicitudController extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    private void buscarSolicitud(HttpServletRequest request, HttpServletResponse response) 
-            throws ServletException, IOException {  
-        request.getRequestDispatcher("/presentacion/solicitud/BuscarSolicitud.jsp").forward(request, response);
-    }
-
-    private void nuevaSolicitud(HttpServletRequest request, HttpServletResponse response) 
+    private void buscarSolicitud(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-         ArrayList<Bien> bienes = new ArrayList<>();   
-         request.getSession().setAttribute("modeloBienes", bienes);
-       
+        try {
+            String actionHide = request.getParameter("actionHide");
+            if (actionHide != null) {
+                if (actionHide.equals("find")) {
+                    String quest = request.getParameter("quest");
+                    request.setAttribute("solicitudes", findByQuest(quest));
+                }
+            }
+            else{
+            request.setAttribute("solicitudes", findAll());
+            }
+        } catch (Exception ex) {
+        }
+        request.getRequestDispatcher("/presentacion/solicitud/BuscarSolicitud.jsp").forward(request, response);
+    }
+
+    private void agregarNuevaSolicitud(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+            String NumComrobante = request.getParameter("campoComprobante");
+            String fecha = request.getParameter("campoFecha");
+            String tipo = request.getParameter("tipo");
+            Usuario usuario = (Usuario) request.getSession(true).getAttribute("logged");
+
+            Solicitud unaSolicitud = new Solicitud(usuario.getDependencia(),
+                    "Recibidad", NumComrobante, fecha, tipo, usuario.getDependecia(), "");
+            SolicitudDao dao = new SolicitudDao();
+            dao.save(unaSolicitud);
+
+            String query = "FROM Solicitud WHERE comprobante = '" + NumComrobante
+                    + "'";
+            Solicitud solicitudBase = (Solicitud) dao.findByQuery(query).get(0);
+            registrar(request, response, solicitudBase.getIdSolicitud());
+
+            buscarSolicitud(request, response);
+        } catch (Exception ex) {
+        }
+    }
+
+    private void nuevaSolicitud(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        request.getRequestDispatcher("/presentacion/solicitud/NuevaSolicitud.jsp").forward(request, response);
+
+    }
+
+    private void agregarBien(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        Bien unBien = new Bien();
+        ArrayList<Bien> bienes = new ArrayList<>();
+
+        unBien.setDescripcion(request.getParameter("Descripcion"));
+        unBien.setCantidad(request.getParameter("Cantidad"));
+        unBien.setMarca(request.getParameter("Marca"));
+        unBien.setPrecio(Integer.parseInt(request.getParameter("Precio")));
+
+        bienes = (ArrayList<Bien>) request.getSession().getAttribute("modeloBienes");
+        if (bienes != null) {
+            bienes.add(unBien);
+        } else {
+            bienes = new ArrayList<>();
+            bienes.add(unBien);
+        }
+
+        request.getSession().setAttribute("modeloBienes", bienes);
         request.getRequestDispatcher("/presentacion/solicitud/NuevaSolicitud.jsp").forward(request, response);
     }
 
-    private void agregarBien(HttpServletRequest request, HttpServletResponse response)  
-                 throws ServletException, IOException {
-        
-        Bien unBien  = new Bien();   
-        ArrayList<Bien> bienes = new ArrayList<>();
-        
-        unBien.setDescripcion(request.getParameter("Descripcion")); 
-        unBien.setCantidad(request.getParameter("Cantidad"));
-        unBien.setMarca(request.getParameter("Marca")); 
-        unBien.setPrecio(Integer.parseInt(request.getParameter("Precio")));
-   
-            
-        bienes = (ArrayList<Bien>) request.getSession().getAttribute("modeloBienes");
-        bienes.add(unBien);
-            
-        request.getSession().setAttribute("modeloBienes", bienes);
-        request.getRequestDispatcher("/presentacion/solicitud/NuevaSolicitud.jsp").forward(request, response);
-}
+    private void registrar(HttpServletRequest request, HttpServletResponse response, Integer idSolicitud) throws ServletException, IOException {
+        try {
 
-    private void registrar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Bien unBien  = new Bien();   
-        Solicitud unaSolicitud = new Solicitud();
-        ArrayList<Bien> bienes = new ArrayList<>();
-        
-        unaSolicitud.setComprobante(request.getParameter("campoComprobante"));  
-        unaSolicitud.setFecha(request.getParameter("campoFecha")); 
-        unaSolicitud.setTipo(request.getParameter("tipo"));
-        
-        bienes = (ArrayList<Bien>) request.getSession().getAttribute("modeloBienes");
-        
-        
-            
-        for (Bien bien : bienes) {
-            //agregar los bienes a la solicitud.
-            //modificarle el numero de la solicitud a los bienes y los otros atributos. 
+            ArrayList<Bien> bienes = (ArrayList<Bien>) request.getSession().getAttribute("modeloBienes");
+            BienDao dao = new BienDao();
+            for (Bien bien : bienes) {
+                bien.setEstado("inactivo");
+                bien.setSolicitud(idSolicitud);
+                dao.save(bien);
+            }
+        } catch (Exception ex) {
         }
-     
-        request.getSession().setAttribute("modeloBienes", bienes);
-        request.getRequestDispatcher("/presentacion/solicitud/BuscarSolicitud.jsp").forward(request, response);
+
+    }
+
+    private List<Solicitud> findAll() {
+        List<Solicitud> solicitudes = null;
+        SolicitudDao dao = new SolicitudDao();
+        try {
+            solicitudes = dao.findAll();
+            return solicitudes;
+        } catch (Exception ex) {
+        }
+        return null;
+    }
+
+    private List<Solicitud> findByQuest(String quest) {
+        List<Solicitud> solicitudes = null;
+        SolicitudDao dao = new SolicitudDao();
+        try {
+            String query = "FROM Solicitud\n"
+                    + "WHERE comprobante LIKE '" + "%" + quest + "%'";
+            solicitudes = dao.findByQuery(query);
+            return solicitudes;
+        } catch (Exception ex) {
+        }
+        return null;
     }
 
 }
