@@ -18,15 +18,14 @@ and open the template in the editor.
         <title>Nueva Solicitud</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%@ include file="../../Head.jsp" %>
+    <%@ include file="/Head.jsp" %>
     </head>
     <body id="soli">
-
         <div class="bodySoli">
             <div class="div2Soli">
                 <h3>SOLICITUD</h3>
                 <center>
-                    <form>
+                    <form method="POST" name="formulario" action="Controller/SolicitudController">
                         <input class=" col-md-6 form-control" type="text"  name="campoComprobante" placeholder="Numero Comprobante"><br>
                         <input class=" col-md-6 form-control" type="text" name="campoFecha" placeholder="dia/mes/año"><br>
                         <div class="col-md-6">
@@ -48,29 +47,33 @@ and open the template in the editor.
             
             <div class="divBienes">
                 <center>
-                <form >
-                <h4 class="col-md-4">Bienes</h4>
-                <table>
-                    <thead>
-                        <tr>
-                        <th>Descripcion</th>
-                        <th>Modelo</th>
-                        <th>Marca</th>
-                        <th>Precio</th>
-                        <th>Cantidad</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <td> <input class="form-control" type="text" name="Descripcion"> </td>
-                    <td> <input class="form-control" type="text" name="Modelo"> </td>
-                    <td> <input class="form-control" type="text" name="Marca"> </td>
-                    <td> <input class="form-control" type="text" name="Precio"> </td>
-                    <td> <input class="form-control" type="text" name="Cantidad"> </td>
-                    </tbody>
-                </table></br>
-                    <input type="text" name="action" value="agregar" style= "display: none;"/>
-                    <input type="submit" value="Agregar" class="btn-success"/>
-               </form>
+                    <form method="POST" name="formulario" action="Controller/SolicitudController">
+                        <h4 class="col-md-4">Bienes</h4>
+                        <table>
+                           
+                            <thead>
+                                <tr>
+                                <th>Descripcion</th>
+                                <th>Modelo</th>
+                                <th>Marca</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                </tr>
+                            </thead>
+                            
+                            <tbody>
+                                <tr>
+                                    <td> <input class="form-control" type="text" name="Descripcion"> </td>
+                                    <td> <input class="form-control" type="text" name="Modelo"> </td>
+                                    <td> <input class="form-control" type="text" name="Marca"> </td>
+                                    <td> <input class="form-control" type="text" name="Precio"> </td>
+                                    <td> <input class="form-control" type="text" name="Cantidad"> </td>    
+                                </tr>
+                            </tbody>
+                            <input type="submit" value="Agregar Bien" name="action">
+                        </table>
+                        <br>
+                  </form>
                 </center>
             </div><br>
            
@@ -78,7 +81,7 @@ and open the template in the editor.
             
                 <div class="contenttablaPresentaBienes">
 
-                    <% List<Bien> model = (List<Bien>) request.getAttribute("model");%>
+                    <% List<Bien> model = (List<Bien>) request.getSession().getAttribute("modeloBienes");%>
 
                     <table class="table table-hover"> 
                         <caption>Bienes de la solicitud</caption>
