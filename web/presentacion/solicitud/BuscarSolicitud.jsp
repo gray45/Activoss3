@@ -30,7 +30,7 @@
                 <label>
                     # Comprobante :
                 </label>
-                <input type="text" name="quest" />
+                <input class="" type="text" name="quest" />
                 <input type="text" name="actionHide"  value="find" class="escondida"/>
                     </div>
                     <div class="col-md-2"> 

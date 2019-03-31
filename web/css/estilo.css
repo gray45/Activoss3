@@ -100,3 +100,8 @@
 .escondida{
     display: none;
 }
+
+th{
+    background-color: black;
+    color: #097fed ;
+}
