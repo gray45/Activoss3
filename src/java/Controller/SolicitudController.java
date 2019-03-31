@@ -5,8 +5,10 @@
  */
 package Controller;
 
+import activos.logic.Bien;
+import activos.logic.Solicitud;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,8 +43,11 @@ public class SolicitudController extends HttpServlet {
             if (action.equals("nuevaSolicitud"))
                 this.nuevaSolicitud(request, response);    
             
-            if (action.equals(""))
-                this.nuevaSolicitud(request, response);  
+            if (action.equals("Agregar Bien"))
+                this.agregarBien(request, response);  
+            
+            if (action.equals("Registrar"))
+                this.registrar(request, response);  
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -91,7 +96,52 @@ public class SolicitudController extends HttpServlet {
 
     private void nuevaSolicitud(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
+        
+         ArrayList<Bien> bienes = new ArrayList<>();   
+         request.getSession().setAttribute("modeloBienes", bienes);
+       
         request.getRequestDispatcher("/presentacion/solicitud/NuevaSolicitud.jsp").forward(request, response);
+    }
+
+    private void agregarBien(HttpServletRequest request, HttpServletResponse response)  
+                 throws ServletException, IOException {
+        
+        Bien unBien  = new Bien();   
+        ArrayList<Bien> bienes = new ArrayList<>();
+        
+        unBien.setDescripcion(request.getParameter("Descripcion")); 
+        unBien.setCantidad(request.getParameter("Cantidad"));
+        unBien.setMarca(request.getParameter("Marca")); 
+        unBien.setPrecio(Integer.parseInt(request.getParameter("Precio")));
+   
+            
+        bienes = (ArrayList<Bien>) request.getSession().getAttribute("modeloBienes");
+        bienes.add(unBien);
+            
+        request.getSession().setAttribute("modeloBienes", bienes);
+        request.getRequestDispatcher("/presentacion/solicitud/NuevaSolicitud.jsp").forward(request, response);
+}
+
+    private void registrar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Bien unBien  = new Bien();   
+        Solicitud unaSolicitud = new Solicitud();
+        ArrayList<Bien> bienes = new ArrayList<>();
+        
+        unaSolicitud.setComprobante(request.getParameter("campoComprobante"));  
+        unaSolicitud.setFecha(request.getParameter("campoFecha")); 
+        unaSolicitud.setTipo(request.getParameter("tipo"));
+        
+        bienes = (ArrayList<Bien>) request.getSession().getAttribute("modeloBienes");
+        
+        
+            
+        for (Bien bien : bienes) {
+            //agregar los bienes a la solicitud.
+            //modificarle el numero de la solicitud a los bienes y los otros atributos. 
+        }
+     
+        request.getSession().setAttribute("modeloBienes", bienes);
+        request.getRequestDispatcher("/presentacion/solicitud/BuscarSolicitud.jsp").forward(request, response);
     }
 
 }
