@@ -18,9 +18,10 @@ and open the template in the editor.
         <title>Nueva Solicitud</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%@ include file="/Head.jsp" %>
+    <%@ include file="../../Head.jsp" %>
     </head>
     <body id="soli">
+        <%@include file="../../Header.jsp" %>
         <div class="bodySoli">
             <div class="div2Soli">
                 <h3>SOLICITUD</h3>

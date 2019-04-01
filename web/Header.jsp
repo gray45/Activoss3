@@ -12,7 +12,7 @@ debe de ir alguna variable en este jsp para que cambie el nombre en el menu o he
 <link href="css/estiloMenu.css" rel="stylesheet" type="text/css"/>
    <!-- menu  -->
    
-   <nav class="head navbar">
+   <nav class="head navbar navbar-default">
         
         <div>
             <a  href="#"> <img id="logoSistema"> Activos </a>

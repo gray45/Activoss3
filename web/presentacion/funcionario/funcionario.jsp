@@ -16,6 +16,7 @@
         <title>Funcionario</title>
     </head>
     <body>
+        <%@ include file="../../Header.jsp" %>
         <% List<Dependencia> dependencias = (List<Dependencia>) request.getAttribute("dependencias");%>
        <div  class="container-fluid">
             <h1 id="blue" >Funcionarios</h1>

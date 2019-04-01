@@ -37,7 +37,7 @@ and open the template in the editor.
         
      </head>
     <body class="inicio">
-        <%@include  file="presentacion/Header.jsp" %>
+        <%@include  file="Header.jsp" %>
         <div>
             <div class="contenedor">
                     <div class="titulo">

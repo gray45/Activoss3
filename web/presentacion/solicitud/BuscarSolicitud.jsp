@@ -15,7 +15,7 @@
         <title>Principal</title>
     </head>
     <body>
-        <%@include  file ="../Header.jsp" %>
+        <%@include  file ="../../Header.jsp" %>
         <% List<Solicitud> solicitudes = (List<Solicitud>) request.getAttribute("solicitudes");%>
        <div  class="container-fluid">
             <h1 id="blue" >Solicitudes</h1>
