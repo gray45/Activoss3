@@ -28,11 +28,11 @@
                 </label>
                 <input type="text" name="descripcion" />
                 <input type="text" name="action" value="agregar" style= "display: none;"/>
-                <input type="submit" value="Agregar" class="btn-success"/>
+                <input type="submit" value="Agregar" class="btn btn-lg btn-success"/>
             </form>
                     <br>
             <% List<Dependencia> model = (List<Dependencia>) request.getAttribute("dependencias");%>
-            <table class="table table-hover">
+            <table class="table table-hover table-striped">
                 <tr>
                     <th>Id</th><th>Dependencia</th>
                 </tr>

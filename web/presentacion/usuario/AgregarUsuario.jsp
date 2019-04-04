@@ -15,6 +15,7 @@
         <title>Agregar Usuario</title>
     </head>
     <body>
+        <%@ include file="../../Header.jsp" %>
         <% List<Funcionario> funcionarios = (List<Funcionario>) request.getAttribute("funcionarios");%>
         <div  class="container-fluid">
             <h1 id="blue" >Registrarse</h1>

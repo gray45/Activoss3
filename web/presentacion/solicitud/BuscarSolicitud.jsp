@@ -12,59 +12,61 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <%@include  file ="../../Head.jsp" %>
-        <title>Principal</title>
+         <title>Principal</title>
     </head>
     <body>
         <%@include  file ="../../Header.jsp" %>
         <% List<Solicitud> solicitudes = (List<Solicitud>) request.getAttribute("solicitudes");%>
-       <div  class="container-fluid">
+        <div  class="container-fluid">
             <h1 id="blue" >Solicitudes</h1>
             <div class="row">
                 <div class="col-md-1 col-sm-1"></div>
                 <div class="col-md-10 col-sm-10 ">
-            <form action="Controller/SolicitudController">
-               
-                <div class="row ">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-5 ">
-                <label>
-                    # Comprobante :
-                </label>
-                <input class="" type="text" name="quest" />
-                <input type="text" name="actionHide"  value="find" class="escondida"/>
-                    </div>
-                    <div class="col-md-2"> 
-                        <input type="submit" value="Buscar" name="action" class="btn-success"/>
-                    </div>
-                    
-                </div>
-                    
-            </form>
-                    <br>
-            <table class="table table-hover">
-                <tr>
-                    <th>Comprobante</th>
-                    <th>Dependencia</th>
-                    <th>Fecha</th>
-                    <th>Tipo</th>
-                    <th>Estado</th>
-                </tr>
-                <% if(solicitudes != null){
-                    for (Solicitud solicitud : solicitudes) {%>
-                <tr>
-                    <td><%=solicitud.getComprobante()%></td>
-                    <td><%=solicitud.getDependecia()%></td>
-                    <td><%=solicitud.getFecha()%></td>
-                    <td><%=solicitud.getTipo()%></td>
-                    <td><%=solicitud.getEstado()%></td>
-                </tr>
-                <% }
-}%>
+                    <form action="Controller/SolicitudController">
 
-            </table>
+                        <div class="row ">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-5 ">
+                                <label>
+                                    # Comprobante :
+                                </label>
+                                <input class="" type="text" name="quest" />
+                                <input type="text" name="actionHide"  value="find" class="escondida"/>
+                            </div>
+                            <div class="col-md-2"> 
+                                <input type="submit" value="Buscar" name="action" class="btn btn-lg btn-success"/>
+                            </div>
+
+                        </div>
+
+                    </form>
+                    <br>
+                    <table class="table table-hover table-striped">
+                        <tr>
+                            <th>Comprobante</th>
+                            <th>Dependencia</th>
+                            <th>Fecha</th>
+                            <th>Tipo</th>
+                            <th>Estado</th>
+                            <td>Detalle</td>
+                        </tr>
+                        <% if (solicitudes != null) {
+                        for (Solicitud solicitud : solicitudes) {%>
+                        <tr>
+                            <td><%=solicitud.getComprobante()%></td>
+                            <td><%=solicitud.getDependecia()%></td>
+                            <td><%=solicitud.getFecha()%></td>
+                            <td><%=solicitud.getTipo()%></td>
+                            <td><%=solicitud.getEstado()%></td>
+                            <td><a class="btn btn-lg btn-primary" href="Controller/SolicitudController?action=detalle&&id=<%=solicitud.getIdSolicitud()%>" >Detalle</a></td>
+                        </tr>
+                        <% }
+                    }%>
+
+                    </table>
                 </div>
                 <div class="col-md-1 col-sm-1"></div>
-</div>
+            </div>
         </div>
     </body>
 </html>

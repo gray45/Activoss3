@@ -7,6 +7,7 @@ package Controller;
 
 import Dao.BienDao;
 import Dao.SolicitudDao;
+import Dao.UsuarioDao;
 import activos.logic.Bien;
 import activos.logic.Solicitud;
 import activos.logic.Usuario;
@@ -55,6 +56,10 @@ public class SolicitudController extends HttpServlet {
 
         if (action.equals("agregarNuevaSolicitud")) {
             this.agregarNuevaSolicitud(request, response);
+        }
+        
+         if (action.equals("detalle")) {
+            this.detalle(request, response);
         }
 
     }
@@ -203,6 +208,34 @@ public class SolicitudController extends HttpServlet {
                     + "WHERE comprobante LIKE '" + "%" + quest + "%'";
             solicitudes = dao.findByQuery(query);
             return solicitudes;
+        } catch (Exception ex) {
+        }
+        return null;
+    }
+    
+    
+    private void detalle(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        String id = request.getParameter("id");
+        
+        SolicitudDao dao = new SolicitudDao();
+       Solicitud solicitud = dao.findByID(Integer.parseInt(id));
+       
+        request.setAttribute("solicitud", solicitud);
+        request.setAttribute("bienes", getBienesBySolicitud(id));
+        request.getRequestDispatcher("/presentacion/solicitud/Detalle.jsp").forward(request, response);
+    }
+    
+    
+     private List<Bien> getBienesBySolicitud(String quest) {
+        List<Bien> Bienes = null;
+        BienDao dao = new BienDao();
+        try {
+            String query = "FROM Bien\n"
+                    + "WHERE solicitud = " + quest;
+            Bienes = dao.findByQuery(query);
+            return Bienes;
         } catch (Exception ex) {
         }
         return null;

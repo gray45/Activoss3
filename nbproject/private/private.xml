@@ -3,42 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/src/java/activos/logic/Funcionario.java</file>
-            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/src/java/activos/logic/Biencategoria.java</file>
-            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/web/presentacion/usuario/AgregarUsuario.jsp</file>
-            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/src/java/activos/logic/Solicitud.java</file>
-            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/web/Header.jsp</file>
-            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/web/index.jsp</file>
-            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/web/css/estilo.css</file>
-            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/src/java/activos/logic/Funcionario.hbm.xml</file>
-            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/src/java/activos/logic/Bien.java</file>
-            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/web/presentacion/solicitud/BuscarSolicitud.jsp</file>
-            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/src/java/activos/logic/Solicitud.hbm.xml</file>
-            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/src/java/Dao/DependenciaDao.java</file>
-            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/src/java/activos/logic/Bien.hbm.xml</file>
-            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/src/java/activos/logic/Usuario.java</file>
+            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/web/presentacion/dependencia/dependencia.jsp</file>
             <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/web/css/estiloMenu.css</file>
             <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/web/Head.jsp</file>
-            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/src/java/Controller/FuncionarioController.java</file>
-            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/web/presentacion/funcionario/funcionario.jsp</file>
-            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/web/css/bootstrap.min.css</file>
-            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/src/java/Test/DependenciaTest.java</file>
-            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/src/java/activos/logic/Funcionariobien.hbm.xml</file>
-            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/src/java/activos/logic/Usuario.hbm.xml</file>
-            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/web/presentacion/dependencia/dependencia.jsp</file>
-            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/src/java/activos/logic/Categoria.hbm.xml</file>
-            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/src/java/activos/logic/Dependencia.hbm.xml</file>
-            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/src/java/activos/logic/Biencategoria.hbm.xml</file>
             <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/src/java/Controller/SolicitudController.java</file>
+            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/web/Header.jsp</file>
             <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/src/java/Controller/UsuarioController.java</file>
-            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/src/java/Test/UsuarioTest.java</file>
-            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/src/java/activos/logic/Funcionariobien.java</file>
-            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/web/js/jquery.min.js</file>
-            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/web/presentacion/solicitud/NuevaSolicitud.jsp</file>
-            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/src/java/Test/FuncionarioTest.java</file>
-            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/web/presentacion/usuario/login/View.jsp</file>
-            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/src/java/Controller/DependenciaController.java</file>
-            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/src/java/hibernate.cfg.xml</file>
+            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/web/presentacion/solicitud/Detalle.jsp</file>
+            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/web/presentacion/funcionario/funcionario.jsp</file>
+            <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/web/presentacion/solicitud/BuscarSolicitud.jsp</file>
             <file>file:/C:/Users/grave/Documents/NetBeansProjects/Activos/src/java/Controller/LoginController.java</file>
         </group>
     </open-files>

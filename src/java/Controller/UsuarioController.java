@@ -36,7 +36,7 @@ public class UsuarioController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-         String action = request.getParameter("action");
+        String action = request.getParameter("action");
 
         if ("agregar".equals(action)) {
             String descripcion = request.getParameter("descripcion");
@@ -44,16 +44,16 @@ public class UsuarioController extends HttpServlet {
             String userName = request.getParameter("UserName");
             String rol = request.getParameter("rol");
             String password = request.getParameter("password");
-            
-           Funcionario funcionario = getFuncionarioById(Integer.parseInt(funcionarioId));
-            add(funcionario.getDependencia(),funcionario.getIdFuncionario(),
-                    userName,rol,funcionario.getDependencia_1(),password);
+
+            Funcionario funcionario = getFuncionarioById(Integer.parseInt(funcionarioId));
+            add(funcionario.getDependencia(), funcionario.getIdFuncionario(),
+                    userName, rol, funcionario.getDependencia_1(), password);
             request.getRequestDispatcher("/index.jsp").forward(request, response);
         }
+        request.setAttribute("funcionarios", findAll());
+        request.getRequestDispatcher("/presentacion/usuario/AgregarUsuario.jsp").forward(request, response);
 
-          request.getRequestDispatcher("/presentacion/usuario/AgregarUsuario.jsp").forward(request, response);
-       request.setAttribute("funcionarios", findAll());
-   }
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -104,13 +104,13 @@ public class UsuarioController extends HttpServlet {
         }
         return null;
     }
-    
-    private Funcionario getFuncionarioById(Integer id){
-    
-    FuncionarioDao dao = new FuncionarioDao();
-   return (Funcionario) dao.findByID(id);
+
+    private Funcionario getFuncionarioById(Integer id) {
+
+        FuncionarioDao dao = new FuncionarioDao();
+        return (Funcionario) dao.findByID(id);
     }
-    
+
     private void add(Integer dependencia, Integer funcionario, String nombre, String rol, String dependenciaDescricion, String password) {
         Usuario usuario = new Usuario(dependencia, funcionario, nombre, rol, dependenciaDescricion, password);
         UsuarioDao dao = new UsuarioDao();

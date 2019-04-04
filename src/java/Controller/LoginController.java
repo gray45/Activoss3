@@ -52,7 +52,7 @@ public class LoginController extends HttpServlet {
                 this.prepareLogin(request, response);        
             if (action.equals("login"))
                 this.login(request, response);
-            if (request.getServletPath().equals("/presentacion/usuarios/login/logout"))
+            if (action.equals("logout"))
                 this.logout(request, response);            
     }
 
@@ -96,7 +96,7 @@ public class LoginController extends HttpServlet {
             HttpSession session = request.getSession(true);
             session.removeAttribute("logged");
             session.invalidate();
-            request.getRequestDispatcher("/presentacion/usuarios/login/prepareLogin").forward( request, response); 
+           prepareLogin(request, response); 
     }           
 
     boolean verificar(HttpServletRequest request){
