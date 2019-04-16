@@ -68,9 +68,11 @@ and open the template in the editor.
                         </div>
                     </div>
             </div>
-            <div class="div3Inferior">
-                <a class="a3">Para mas informacion www.una.ac.cr &nbsp; o &nbsp; Tel: 2277 3000</a>
+            
+            <div class="container-fluid">
+                <a>Para mas informacion www.una.ac.cr &nbsp; o &nbsp; Tel: 2277 3000</a>
             </div>
+            
         </div>
     </body>
 </html>
