@@ -14,22 +14,26 @@ import java.util.List;
  * @author grave
  */
 public class FuncionarioTest {
-    
-      static public void main(String[] args){
-       
-         //insertar();
-         findAllFuncionario();
-       //  editNombre(3);
+
+    static public void main(String[] args) {
+
+        insertar();
+        //findAllFuncionario();
+        //  editNombre(3);
     }
-    public static  void insertar(){
-     for(int i=0; i<5; i++){
-     Funcionario usuario = new Funcionario(3,"402110725"  + i,"fisica");
-     
-     FuncionarioDao usuariodao = new FuncionarioDao();
-            usuariodao.save(usuario);
-     }
-         }
-    
+
+    public static void insertar() {
+           
+
+//    public Funcionario(Integer dependencia, String cedula, String dependencia_1) {
+
+        Funcionario usuario = new Funcionario(1, "207640246", "informatica");
+
+        FuncionarioDao usuariodao = new FuncionarioDao();
+        usuariodao.save(usuario);
+
+    }
+
     public static void findAllFuncionario() {
         List<Funcionario> usuarios;
         FuncionarioDao bl = new FuncionarioDao();
@@ -38,14 +42,14 @@ public class FuncionarioTest {
         usuarios.forEach((aux) -> {
             System.out.println(aux.getCedula());
         });
-        
+
     }
-    
-    public static  void editNombre(int i){
-    Funcionario usuario = new Funcionario(3,"37637647","fisica");
-    usuario.setIdFuncionario(i);
-    FuncionarioDao bl = new FuncionarioDao();
-    bl.merge(usuario);
+
+    public static void editNombre(int i) {
+        Funcionario usuario = new Funcionario(3, "37637647", "fisica");
+        usuario.setIdFuncionario(i);
+        FuncionarioDao bl = new FuncionarioDao();
+        bl.merge(usuario);
     }
-    
+
 }

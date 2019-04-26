@@ -14,19 +14,19 @@ import java.util.List;
  * @author grave
  */
 public class DependenciaTest {
-    static public void main(String[] args){
-       
-       //  insertar();
-         findAllUsuario();
+    static public void main(String[] args) {
+
+        insertar();
+        //  findAllUsuario();
         //editNombre(3);
     }
-    public static  void insertar(){
-     for(int i=0; i<5; i++){
-     Dependencia depedencia = new Dependencia("informatica");
-     DependenciaDao dependenciadao = new DependenciaDao();
-            dependenciadao.save(depedencia);
-     }
-         }
+
+    public static void insertar() {
+      
+            Dependencia depedencia = new Dependencia("informatica");
+            DependenciaDao dependenciadao = new DependenciaDao();
+            dependenciadao.save(depedencia);   
+    }
     
     public static void findAllUsuario() {
         List<Dependencia> usuarios;
@@ -37,11 +37,11 @@ public class DependenciaTest {
             System.out.println(aux.getDescripcion());
         });
     }
-    
-    public static  void editNombre(int i){
-    Dependencia dependencia = new Dependencia("fisica");
-    dependencia.setId(i);
-    DependenciaDao bl = new DependenciaDao();
-    bl.merge(dependencia);
+
+    public static void editNombre(int i) {
+        Dependencia dependencia = new Dependencia("fisica");
+        dependencia.setId(i);
+        DependenciaDao bl = new DependenciaDao();
+        bl.merge(dependencia);
     }
 }
