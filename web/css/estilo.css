@@ -11,15 +11,13 @@
     height: 110px;
     width: auto;
     background-color: darkslategrey ;
-    
+
 }
 
 
 .contenedor {
-    width: 1300px;
-    height: 450px;
-    margin-left: 150px;
-    margin-top: 70px;
+
+    margin: auto;
     background-color: #bfd0ef;
     border: black;
     border: darkslategray 2px solid;
@@ -80,20 +78,20 @@
     border-radius: 6px 6px 6px 6px;
     background-color: #E8E8EB;
     margin: 10px 25px 25px 10px;
-    
+
 }
 
 .inputForm{
     border-radius: 3px 3px 3px 3px;
     margin: 10px 25px 25px 10px;
-    
+
 }
 .submitButton{
     border-radius: 3px 3px 3px 3px;    
     margin: 10px 10px 10px 10px;
-    
+
 }
- .bodySoli {
+.bodySoli {
 
 }
 
@@ -104,4 +102,35 @@
 th{
     background-color: black;
     color: white ;
+}
+
+.boton {
+    border-radius: 200px 200px 200px 200px;
+    -moz-border-radius: 200px 200px 200px 200px;
+    -webkit-border-radius: 200px 200px 200px 200px;
+    border: 0px solid #000000;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
