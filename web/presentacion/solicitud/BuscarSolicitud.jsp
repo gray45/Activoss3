@@ -8,11 +8,23 @@
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
+
 <html>
+
+
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <%@include  file ="../../Head.jsp" %>
-         <title>Principal</title>
+        <title>Principal</title>
+        <script>
+
+            document.addEventListener("DOMContentLoaded",paginaCargada);
+
+            function paginaCargada() {
+                document.querySelectorAll(".ColRowEstado").addActionListener();
+            }
+        </script>
     </head>
     <body>
         <%@include  file ="../../Header.jsp" %>
@@ -51,17 +63,34 @@
                             <td>Detalle</td>
                         </tr>
                         <% if (solicitudes != null) {
-                        for (Solicitud solicitud : solicitudes) {%>
+                                for (Solicitud solicitud : solicitudes) {%>
                         <tr>
                             <td><%=solicitud.getComprobante()%></td>
                             <td><%=solicitud.getDependecia()%></td>
                             <td><%=solicitud.getFecha()%></td>
                             <td><%=solicitud.getTipo()%></td>
+
+                            <!--Opcion de Modificar para el Secretario-->
+                            <% if (logged.getRol().equals("Secretaria")) { %>
+                            <td class="ColRowEstado">
+                                <button class="boton" >Aceptar </button>
+                                <button class="boton" >Rechazar</button>
+                            </td>    
+                            <%}%>
+
+
+                            <% if (logged.getRol().equals("Administrador")) {%>
                             <td><%=solicitud.getEstado()%></td>
-                            <td><a class="btn btn-lg btn-primary" href="Controller/SolicitudController?action=detalle&&id=<%=solicitud.getIdSolicitud()%>" >Detalle</a></td>
+                            <%}%>
+
+                            <td><a class="btn btn-primary btn-sm" href="Controller/SolicitudController?action=detalle&&id=<%=solicitud.getIdSolicitud()%>" >Detalle</a></td>
+
+
                         </tr>
+
+
                         <% }
-                    }%>
+                            }%>
 
                     </table>
                 </div>
@@ -69,4 +98,5 @@
             </div>
         </div>
     </body>
+
 </html>
